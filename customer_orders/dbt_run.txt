@@ -1,0 +1,32 @@
+[0m06:28:55  Running with dbt=1.10.2
+[0m06:28:57  Registered adapter: bigquery=1.9.2
+[0m06:28:57  Found 10 models, 25 data tests, 3 sources, 493 macros
+[0m06:28:57  
+[0m06:28:57  Concurrency: 4 threads (target='dbt')
+[0m06:28:57  
+[0m06:28:58  1 of 10 START sql table model dbt_staging.stg_customers ........................ [RUN]
+[0m06:29:00  1 of 10 OK created sql table model dbt_staging.stg_customers ................... [[32mCREATE TABLE (991.0 rows, 29.2 KiB processed)[0m in 2.07s]
+[0m06:29:00  2 of 10 START sql table model dbt_staging.stg_orders ........................... [RUN]
+[0m06:29:03  2 of 10 OK created sql table model dbt_staging.stg_orders ...................... [[32mCREATE TABLE (917.0 rows, 49.3 KiB processed)[0m in 2.16s]
+[0m06:29:03  3 of 10 START sql table model dbt_intermediate.int_customer_order_values ....... [RUN]
+[0m06:29:03  4 of 10 START sql table model dbt_marts.mart_high_value_customers .............. [RUN]
+[0m06:29:03  5 of 10 START sql table model dbt_marts.mart_quarterly_revenue ................. [RUN]
+[0m06:29:03  6 of 10 START sql table model dbt_staging.stg_shipments ........................ [RUN]
+[0m06:29:05  3 of 10 OK created sql table model dbt_intermediate.int_customer_order_values .. [[32mCREATE TABLE (592.0 rows, 35.8 KiB processed)[0m in 1.94s]
+[0m06:29:05  6 of 10 OK created sql table model dbt_staging.stg_shipments ................... [[32mCREATE TABLE (811.0 rows, 49.9 KiB processed)[0m in 2.02s]
+[0m06:29:05  7 of 10 START sql table model dbt_intermediate.int_orders_with_shipments ....... [RUN]
+[0m06:29:05  4 of 10 OK created sql table model dbt_marts.mart_high_value_customers ......... [[32mCREATE TABLE (0.0 rows, 57.6 KiB processed)[0m in 2.30s]
+[0m06:29:05  5 of 10 OK created sql table model dbt_marts.mart_quarterly_revenue ............ [[32mCREATE TABLE (1.0 rows, 21.5 KiB processed)[0m in 2.35s]
+[0m06:29:07  7 of 10 OK created sql table model dbt_intermediate.int_orders_with_shipments .. [[32mCREATE TABLE (917.0 rows, 54.8 KiB processed)[0m in 2.38s]
+[0m06:29:07  8 of 10 START sql table model dbt_marts.mart_fulfillment_performance ........... [RUN]
+[0m06:29:07  9 of 10 START sql table model dbt_marts.mart_late_orders ....................... [RUN]
+[0m06:29:07  10 of 10 START sql table model dbt_marts.mart_order_conversion_rate ............ [RUN]
+[0m06:29:09  10 of 10 OK created sql table model dbt_marts.mart_order_conversion_rate ....... [[32mCREATE TABLE (1.0 rows, 15.5 KiB processed)[0m in 1.93s]
+[0m06:29:09  8 of 10 OK created sql table model dbt_marts.mart_fulfillment_performance ...... [[32mCREATE TABLE (1.0 rows, 4.2 KiB processed)[0m in 2.17s]
+[0m06:29:09  9 of 10 OK created sql table model dbt_marts.mart_late_orders .................. [[32mCREATE TABLE (170.0 rows, 29.8 KiB processed)[0m in 2.17s]
+[0m06:29:09  
+[0m06:29:09  Finished running 10 table models in 0 hours 0 minutes and 12.18 seconds (12.18s).
+[0m06:29:09  
+[0m06:29:09  [32mCompleted successfully[0m
+[0m06:29:09  
+[0m06:29:09  Done. PASS=10 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=10

@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Staged customer data. One record per customer."
+    
+    columns:
+      - name: customer_id
+        description: "Unique identifier for a customer. This is the primary key."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: "Staged order data. One record per order."
+    columns:
+      - name: order_id
+        description: "Unique identifier for an order. This is the primary key."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key referencing the customer who placed the order."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: order_date
+        description: "The date the order was placed."
+        tests:
+          - not_null
+      - name: total_value
+        description: "Total monetary value of the order."
+        tests:
+          - not_null
+
+  - name: stg_shipments
+    description: "Staged shipment data. One record per shipment."
+    columns:
+      - name: shipment_id
+        description: "Unique identifier for a shipment. This is the primary key."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key referencing the order for this shipment."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id

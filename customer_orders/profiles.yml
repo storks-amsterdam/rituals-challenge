@@ -1,0 +1,11 @@
+customer_orders:
+  target: dbt
+  outputs:
+    dbt:
+      type: bigquery
+      method: oauth
+      project: rituals-challenge
+      schema: dbt
+      threads: 4
+      # Optional: update to your BigQuery location if not US
+      location: EU

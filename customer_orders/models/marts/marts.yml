@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: mart_late_orders
+    description: "A dataset containing orders that were shipped more than five days after order placement, including the delay duration."
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+
+  - name: mart_high_value_customers
+    description: "A dataset categorizing high-value customers with cumulative order values exceeding $5,000 in the last six months."
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+
+  - name: mart_order_conversion_rate
+    description: "A metric tracking order conversion efficiency from created to shipped to delivered."
+    columns:
+      - name: total_orders
+        tests:
+          - not_null
+
+  - name: mart_quarterly_revenue
+    description: "A dataset containing total revenue per quarter."
+    columns:
+      - name: order_year
+        tests:
+          - not_null
+      - name: order_quarter
+        tests:
+          - not_null
+
+  - name: mart_fulfillment_performance
+    description: "A report tracking the average time from order placement to shipment."
+    columns:
+      - name: average_days_to_ship
+        tests:
+          - not_null

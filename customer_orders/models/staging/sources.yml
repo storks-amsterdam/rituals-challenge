@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Raw data from the operational database."
+    database: rituals-challenge
+    schema: raw
+    tables:
+      - name: customers
+        description: "Contains one record per customer."
+        columns:
+          - name: row_id
+            description: "CSV index row created on load. Not necessary."
+          - name: customer_id
+            description: "Unique customer identifier."
+          - name: first_name
+            description: "First name of the customer."
+          - name: last_name
+            description: "Last name of the customer."
+          - name: country
+            description: "Country associated with the customer."
+
+      - name: orders
+        description: "Contains one record per order."
+        columns:
+          - name: order_id
+            description: "Unique identifier for an order."
+          - name: customer_id
+            description: "Identifier for the customer placing the order."
+          - name: order_date
+            description: "Timestamp of order placement."
+          - name: ship_date
+            description: "Timestamp of order shipment (if applicable)."
+          - name: total_value
+            description: "Total monetary value of the order."
+
+      - name: shipments
+        description: "Contains one record per shipment."
+        columns:
+          - name: shipment_id
+            description: "Unique identifier for a shipment."
+          - name: order_id
+            description: "Associated order ID."
+          - name: ship_date
+            description: "Date when the order was shipped."
+          - name: delivery_date
+            description: "Date when the order was delivered (if applicable)."

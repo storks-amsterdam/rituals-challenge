@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: int_orders_with_shipments
+    description: "Joins orders with their shipment details, calculating durations. One record per order."
+    columns:
+      - name: order_id
+        description: "Unique identifier for an order. Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to customers."
+      - name: order_date
+        description: "Date the order was placed."
+      - name: total_value
+        description: "Total value of the order."
+      - name: first_ship_date
+        description: "The first shipment date for the order."
+      - name: last_ship_date
+        description: "The last shipment date for the order."
+      - name: first_delivery_date
+        description: "The first delivery date for the order."
+      - name: last_delivery_date
+        description: "The last delivery date for the order."
+      - name: days_to_ship
+        description: "Number of days from order placement to first shipment."
+      - name: days_to_deliver
+        description: "Number of days from first shipment to last delivery."
+
+  - name: int_customer_order_values
+    description: "Aggregates order metrics per customer. One record per customer."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for a customer. Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: first_order_date
+        description: "The date of the customer's first order."
+      - name: last_order_date
+        description: "The date of the customer's most recent order."
+      - name: number_of_orders
+        description: "Total number of orders placed by the customer."
+      - name: total_order_value
+        description: "Total lifetime value of all orders from the customer."
